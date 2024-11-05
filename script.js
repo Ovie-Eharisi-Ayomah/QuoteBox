@@ -7,21 +7,20 @@ const loader = document.getElementById('loader');
 
 let apiQuotes = [];
 
-// Show loading
-function loading() {
+
+function showLoadingSpinner() {
     loader.hidden = false
     quoteContainer.hidden = true
 }
 
-// Hide Loading
-function complete() {
+function removeLoadingSpinner() {
     loader.hidden = true
     quoteContainer.hidden = false
 }
 
 // Show New Quote
 function newQuote() {
-    loading()
+    showLoadingSpinner()
     // Pick a random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
     // Check if Author field is blank and replace it with Anonymous
@@ -38,13 +37,13 @@ function newQuote() {
     }
     // Set quote and hide loader
     quoteText.textContent = quote.q;
-    complete()
+    removeLoadingSpinner()
 }
 
 // Get Quotes From API
 async function getQuotes() {
-    loading();
-    const apiUrl = 'https://zenquotes.io/api/quotes';
+    showLoadingSpinner();
+    const apiUrl = 'http://localhost:3000/quotes';
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
