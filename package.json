@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "build": "npm run build",
-    "start": "npm start"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": ""
+  
 }
