@@ -43,7 +43,7 @@ function newQuote() {
 // Get Quotes From API
 async function getQuotes() {
     showLoadingSpinner();
-    const apiUrl = 'http://localhost:3000/quotes';
+    const apiUrl = 'https://quotebox-proxy-server.onrender.com';
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
